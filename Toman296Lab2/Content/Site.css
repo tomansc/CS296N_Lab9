@@ -1,0 +1,29 @@
+﻿body {
+    margin:0px;
+    padding:0px;
+    background-color: darkslategrey;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.60);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    top:-18px;
+}
+
+.container p {
+    margin:0;
+}

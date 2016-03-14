@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Toman296Lab6.Models.ForumView>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Forum messages</h2>
+<table class="table">
+    @foreach (var forum in Model)
+    {
+        <tr>
+            <td>
+                <table class="table">
+                    <tr>
+                        <td class="table-success">
+                            <strong>
+                                Forum name
+                            </strong>
+                            <br />
+                            @Html.DisplayFor(model => forum.ForumName)
+                            <br />
+                            <strong>
+                                Last modified date
+                            </strong>
+                            <br />
+                            @Html.DisplayFor(model => forum.LastModified)
+                            <br />
+                            <a href="/ForumView/Search" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                                &nbsp;Search messages by subject
+                            </a>
+                        </td>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3><small>Subject</small></h3>
+                        </td>
+                        <td>
+                            <h3><small>Date modified</small></h3>
+                        </td>
+                    </tr>
+
+                    @foreach (var m in forum.Messages)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => m.Subject)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => m.Date)
+                            </td>
+                            <td>
+                                @(Html.ActionLink("View message details", "Details", new { id = m.MessageID }))
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = m.MessageID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = m.MessageID })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    }
+    </table>
+    <p>
+        @Html.ActionLink("Create a new message", "Create")
+    </p>
